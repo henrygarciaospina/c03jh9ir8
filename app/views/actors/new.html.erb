@@ -1,0 +1,48 @@
+<h1>Creación de actores</h1>
+
+<% if @errors %>
+    <% @errors.each do |error| %>
+   <ul>
+       <li><%= error %></li>
+     <% end %>
+   </ul>
+<% end %>
+<%= form_for(@actor) do |a| %>
+<table>
+  <tr>
+    <td><%= a.label :name %></td>
+    <td><%= a.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :bio %></td>
+    <td><%= a.text_area :bio, :cols => 40, rows: 15 %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :birth_date %></td>
+    <td><%= a.date_select :birth_date, :start_year=>1920 %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :birth_place %></td>
+    <td><%= a.text_field :birth_place %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :image_url %></td>
+    <td><%= a.text_field :image_url %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :alive %></td>
+    <td><%= a.check_box :alive, checked: "checked" %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :death_date %></td>
+    <td><%= a.date_select :death_date, :start_year=>1940 %></td>
+  </tr>
+  <tr>
+    <td><%= a.label :death_place %></td>
+    <td><%= a.text_field :death_place %></td>
+  </tr>
+  <tr>
+    <td><%= a.submit %></td>
+  </tr>
+</table>
+<% end %>

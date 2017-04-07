@@ -1,9 +1,10 @@
+<h1>Datos de actores</h1>
 <table>
   <% @actors.each do |actor|%>
     <tr>
       <td><%= image_tag(actor.image_url, size: "50x50")%></td>
       <td><%= actor.name %></td>
-      <td><%= actor.bio %></td>
+      <td align="justify" ><%= actor.bio %></td>
       <td><%= actor.birth_date %></td>
       <td><%= actor.birth_place %></td>
       <% unless actor.alive == true %>
@@ -11,5 +12,10 @@
         <td><%= actor.death_place %></td>
       <% end %>
     </tr>
+   <tr>
+     <td> <br> </td>
+   </tr>
   <% end %>
 </table>
+
+<li><%= link_to "Crear Actor", new_actor_path %></li>
